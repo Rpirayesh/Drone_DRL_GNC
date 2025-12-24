@@ -49,15 +49,23 @@ pip install gymnasium numpy pybullet torch scipy stable-baselines3
 
 ```
 .
-├── NNDyn_ImitationLQR.py    # Main implementation
+├── NNDyn_ImitationLQR.py              # Main implementation
 ├── assets/
-│   └── iris-drone-urdf--main/
-│       └── iris_description/
-│           └── urdf/
-│               └── iris_pybullet.urdf
-├── hover_drone_logs/        # TensorBoard logs
-└── hover_drone_models/      # Saved models
+│   ├── iris-drone-urdf--main/         # Iris drone URDF model
+│   │   └── iris_description/
+│   │       ├── meshes/                # 3D mesh files (.dae)
+│   │       └── urdf/
+│   │           └── iris_pybullet.urdf
+│   ├── quadrotor.urdf                 # Alternative quadrotor model
+│   └── quadrotor2.urdf
+└── hover_drone_models/                # Pre-trained models
+    ├── drone_dynamics_nn_model.pth    # Neural network dynamics model
+    ├── drone_sac_hybrid_model.zip     # SAC hybrid policy
+    ├── drone_sac_lqr_imitation_model.zip
+    └── vec_normalize_*.pkl            # Normalization statistics
 ```
+
+**Note**: `hover_drone_logs/` directory is created during training for TensorBoard logs.
 
 ## Usage
 

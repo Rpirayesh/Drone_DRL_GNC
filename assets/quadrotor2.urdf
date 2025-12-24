@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<robot name="gazebo_style_quadrotor">
+
+  <!-- Base frame -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="1.2"/>
+      <inertia ixx="0.01" iyy="0.01" izz="0.02" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.08" length="0.05"/>
+      </geometry>
+      <material name="carbon"><color rgba="0.1 0.1 0.1 1"/></material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.08" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Arm and rotor pairs -->
+  <!-- Arm 1 -->
+  <link name="arm1">
+    <visual>
+      <origin xyz="0.15 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.3 0.02 0.02"/>
+      </geometry>
+      <material name="gray"><color rgba="0.4 0.4 0.4 1"/></material>
+    </visual>
+  </link>
+  <joint name="arm1_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="arm1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Rotor 1 -->
+  <link name="rotor1">
+    <visual>
+      <origin xyz="0.3 0 0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+      <material name="black"><color rgba="0 0 0 1"/></material>
+    </visual>
+  </link>
+  <joint name="rotor1_joint" type="fixed">
+    <parent link="arm1"/>
+    <child link="rotor1"/>
+    <origin xyz="0.15 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Repeat for remaining 3 arms/rotors -->
+
+  <!-- Arm 2 -->
+  <link name="arm2">
+    <visual>
+      <origin xyz="0 -0.15 0" rpy="0 0 1.5708"/>
+      <geometry>
+        <box size="0.3 0.02 0.02"/>
+      </geometry>
+      <material name="gray"><color rgba="0.4 0.4 0.4 1"/></material>
+    </visual>
+  </link>
+  <joint name="arm2_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="arm2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="rotor2">
+    <visual>
+      <origin xyz="0 -0.3 0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+      <material name="black"><color rgba="0 0 0 1"/></material>
+    </visual>
+  </link>
+  <joint name="rotor2_joint" type="fixed">
+    <parent link="arm2"/>
+    <child link="rotor2"/>
+    <origin xyz="0 -0.15 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Arm 3 -->
+  <link name="arm3">
+    <visual>
+      <origin xyz="-0.15 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.3 0.02 0.02"/>
+      </geometry>
+      <material name="gray"><color rgba="0.4 0.4 0.4 1"/></material>
+    </visual>
+  </link>
+  <joint name="arm3_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="arm3"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="rotor3">
+    <visual>
+      <origin xyz="-0.3 0 0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+      <material name="black"><color rgba="0 0 0 1"/></material>
+    </visual>
+  </link>
+  <joint name="rotor3_joint" type="fixed">
+    <parent link="arm3"/>
+    <child link="rotor3"/>
+    <origin xyz="-0.15 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Arm 4 -->
+  <link name="arm4">
+    <visual>
+      <origin xyz="0 0.15 0" rpy="0 0 1.5708"/>
+      <geometry>
+        <box size="0.3 0.02 0.02"/>
+      </geometry>
+      <material name="gray"><color rgba="0.4 0.4 0.4 1"/></material>
+    </visual>
+  </link>
+  <joint name="arm4_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="arm4"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="rotor4">
+    <visual>
+      <origin xyz="0 0.3 0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.06"/>
+      </geometry>
+      <material name="black"><color rgba="0 0 0 1"/></material>
+    </visual>
+  </link>
+  <joint name="rotor4_joint" type="fixed">
+    <parent link="arm4"/>
+    <child link="rotor4"/>
+    <origin xyz="0 0.15 0" rpy="0 0 0"/>
+  </joint>
+
+</robot>

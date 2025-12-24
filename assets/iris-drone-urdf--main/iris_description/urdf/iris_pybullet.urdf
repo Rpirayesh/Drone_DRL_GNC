@@ -1,0 +1,130 @@
+<?xml version="1.0" ?>
+<robot name="iris">
+
+  <!-- Base link with fixed conservative inertia -->
+  <link name="iris/base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.5"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0"
+               iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/iris.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.47 0.47 0.11"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Rotor 0 -->
+  <joint name="iris/rotor_0_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0.13 -0.22 0.023"/>
+    <axis xyz="0 0 1"/>
+    <parent link="iris/base_link"/>
+    <child link="iris/rotor_0"/>
+  </joint>
+  <link name="iris/rotor_0">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="1e-06" ixy="0" ixz="0"
+               iyy="1e-06" iyz="0" izz="1e-06"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="meshes/propeller_ccw.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.005" radius="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Rotor 1 -->
+  <joint name="iris/rotor_1_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="-0.13 0.2 0.023"/>
+    <axis xyz="0 0 1"/>
+    <parent link="iris/base_link"/>
+    <child link="iris/rotor_1"/>
+  </joint>
+  <link name="iris/rotor_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="1e-06" ixy="0" ixz="0"
+               iyy="1e-06" iyz="0" izz="1e-06"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="meshes/propeller_ccw.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.005" radius="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Rotor 2 -->
+  <joint name="iris/rotor_2_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0.13 0.22 0.023"/>
+    <axis xyz="0 0 1"/>
+    <parent link="iris/base_link"/>
+    <child link="iris/rotor_2"/>
+  </joint>
+  <link name="iris/rotor_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="1e-06" ixy="0" ixz="0"
+               iyy="1e-06" iyz="0" izz="1e-06"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="meshes/propeller_cw.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.005" radius="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Rotor 3 -->
+  <joint name="iris/rotor_3_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="-0.13 -0.2 0.023"/>
+    <axis xyz="0 0 1"/>
+    <parent link="iris/base_link"/>
+    <child link="iris/rotor_3"/>
+  </joint>
+  <link name="iris/rotor_3">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="1e-06" ixy="0" ixz="0"
+               iyy="1e-06" iyz="0" izz="1e-06"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="meshes/propeller_cw.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.005" radius="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+</robot>
